@@ -1,81 +1,50 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Replace logo with newly uploaded image across all app locations",
+  "title": "Replace logo with uploaded retro book store image across all pages",
   "requirements": [
     {
-      "id": "REQ-23",
-      "summary": "Replace the current logo image in the Navigation component with the newly uploaded logo file, ensuring proper sizing and responsive behavior",
+      "id": "REQ-1",
+      "summary": "Save the uploaded retro book store logo PNG to frontend/public/assets/generated/book-store-logo.png and replace all existing logo image sources in Navigation (desktop and mobile), Footer, ProfileSetupModal, BooksPage hero, and the favicon",
       "acceptanceCriteria": [
-        "The new logo image is saved as a static asset under frontend/public/assets/generated/",
-        "Navigation component references the new logo file and displays it correctly on both desktop and mobile",
-        "Logo is properly sized and does not overflow or appear distorted"
+        "The uploaded retro book store logo PNG is saved to frontend/public/assets/generated/book-store-logo.png.",
+        "Navigation component displays the new logo on both desktop header and mobile Sheet menu, replacing any previous logo.",
+        "Footer component displays the new logo, replacing any previous logo.",
+        "ProfileSetupModal displays the new logo, replacing any previous logo.",
+        "BooksPage displays the new logo wherever the previous logo appeared.",
+        "No instance of the old logo image remains visible anywhere in the app.",
+        "The favicon in frontend/index.html is updated to reference the new logo asset."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/generated/lit-heaven-logo-new.dim_400x400.png",
+          "path": "frontend/public/assets/generated/book-store-logo.png",
           "operation": "create",
-          "description": "Save the edited logo image (re-rendered with warm brown tones and improved contrast) as a static asset in the generated assets directory. This is the edited version of Brown_Retro_Book_Store_Logo_20260224_152956_0000-removebg-preview.png with enhanced visibility on both light and dark backgrounds."
+          "description": "Save the uploaded Brown_Retro_Book_Store_Logo_20260224_180351_0000-removebg-preview.png as book-store-logo.png in the generated assets directory for use throughout the app"
         },
         {
           "path": "frontend/src/components/Navigation.tsx",
           "operation": "modify",
-          "description": "Update the logo image reference from /assets/generated/lit-heaven-logo-visible.dim_400x400.png to /assets/generated/lit-heaven-logo-new.dim_400x400.png. Verify proper sizing (appropriate width/height constraints) and ensure the logo displays correctly in both mobile menu and desktop navigation with proper responsive behavior."
-        }
-      ]
-    },
-    {
-      "id": "REQ-24",
-      "summary": "Update the favicon reference in frontend/index.html to use the newly uploaded logo image",
-      "acceptanceCriteria": [
-        "The <link rel='icon'> in frontend/index.html points to the new logo asset path",
-        "The favicon displays the new logo in the browser tab"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/index.html",
-          "operation": "modify",
-          "description": "Update the favicon <link rel='icon'> tag to reference /assets/generated/lit-heaven-logo-new.dim_400x400.png instead of the current logo path. Ensure the favicon displays correctly in browser tabs."
-        }
-      ]
-    },
-    {
-      "id": "REQ-25",
-      "summary": "Update the BooksPage hero banner to use the newly uploaded logo image wherever the previous logo was referenced",
-      "acceptanceCriteria": [
-        "BooksPage hero banner displays the new logo image",
-        "Image renders correctly at all viewport sizes"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/BooksPage.tsx",
-          "operation": "modify",
-          "description": "Update any logo image references in the hero banner section to use /assets/generated/lit-heaven-logo-new.dim_400x400.png. Ensure the logo renders correctly at all viewport sizes and maintains proper aspect ratio and positioning within the hero layout."
-        }
-      ]
-    },
-    {
-      "id": "REQ-26",
-      "summary": "Audit all other frontend components for references to the old logo and update each to use the newly uploaded logo image",
-      "acceptanceCriteria": [
-        "No component references the old logo file lit-heaven-logo-visible.dim_400x400.png",
-        "All logo instances across the app consistently display the new uploaded logo"
-      ],
-      "file_operations": [
+          "description": "Replace the current logo image source with /assets/generated/book-store-logo.png in both the desktop navigation header and the mobile Sheet menu logo display"
+        },
         {
           "path": "frontend/src/components/Footer.tsx",
           "operation": "modify",
-          "description": "Review Footer component for any references to lit-heaven-logo-visible.dim_400x400.png and update to /assets/generated/lit-heaven-logo-new.dim_400x400.png if logo usage is found. Ensure consistent logo display."
+          "description": "Replace the current logo image source with /assets/generated/book-store-logo.png in the footer component"
         },
         {
           "path": "frontend/src/components/ProfileSetupModal.tsx",
           "operation": "modify",
-          "description": "Review ProfileSetupModal component for any references to lit-heaven-logo-visible.dim_400x400.png and update to /assets/generated/lit-heaven-logo-new.dim_400x400.png if logo usage is found. Ensure the logo displays properly within the modal layout."
+          "description": "Replace the current logo image source with /assets/generated/book-store-logo.png in the profile setup modal header"
         },
         {
-          "path": "frontend/src/components/Layout.tsx",
+          "path": "frontend/src/pages/BooksPage.tsx",
           "operation": "modify",
-          "description": "Review Layout component for any direct logo references (separate from Navigation component) to lit-heaven-logo-visible.dim_400x400.png and update to /assets/generated/lit-heaven-logo-new.dim_400x400.png if found."
+          "description": "Replace any logo image sources in the hero banner or elsewhere on BooksPage with /assets/generated/book-store-logo.png"
+        },
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Update the favicon link tag to reference /assets/generated/book-store-logo.png instead of the current favicon path"
         }
       ]
     }

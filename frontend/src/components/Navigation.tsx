@@ -7,6 +7,8 @@ import { useQueryClient } from '@tanstack/react-query';
 import ThemeToggle from './ThemeToggle';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
+const LOGO_PATH = '/assets/Brown_Retro_Book_Store_Logo_20260224_180351_0000-removebg-preview.png';
+
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { identity, login, clear, loginStatus } = useInternetIdentity();
@@ -39,8 +41,8 @@ export default function Navigation() {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img
-              src="/assets/generated/lit-heaven-logo-new.dim_400x400.png"
-              alt="Lit~Heaven"
+              src={LOGO_PATH}
+              alt="Lit~Heaven open book logo"
               className="h-12 w-auto"
             />
             <span className="font-serif text-2xl font-bold text-foreground">Lit~Heaven</span>
@@ -88,7 +90,15 @@ export default function Navigation() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                <nav className="flex flex-col space-y-4 mt-8">
+                <div className="flex items-center gap-2 mb-6">
+                  <img
+                    src={LOGO_PATH}
+                    alt="Lit~Heaven open book logo"
+                    className="h-10 w-auto"
+                  />
+                  <span className="font-serif text-xl font-bold text-foreground">Lit~Heaven</span>
+                </div>
+                <nav className="flex flex-col space-y-4 mt-2">
                   <Link
                     to="/"
                     className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"

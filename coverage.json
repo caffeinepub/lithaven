@@ -1,72 +1,46 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-24T11:34:52.214Z",
+  "generatedAt": "2026-02-24T21:37:36.612Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 4,
-    "implemented": 3,
+    "total": 1,
+    "implemented": 1,
     "items": [
       {
-        "id": "REQ-23",
-        "summary": "Replace the current logo image (lit-heaven-logo-visible.dim_400x400.png) in the Navigation component with the newly uploaded logo file (Brown_Retro_Book_Store_Logo_20260224_152956_0000-removebg-preview.png), saved as a new asset in frontend/public/assets/generated/. Ensure proper sizing and responsive behavior across desktop and mobile viewports.",
+        "id": "REQ-1",
+        "summary": "Save the uploaded image 'Brown_Retro_Book_Store_Logo_20260224_180351_0000-removebg-preview.png' as a static asset at 'frontend/public/assets/generated/book-store-logo.png' and use it as the logo image source in every location where a logo is currently displayed: Navigation (desktop and mobile Sheet menu), Footer, ProfileSetupModal, and BooksPage hero banner.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/public/assets/generated/lit-heaven-logo-new.dim_400x400.png",
-          "frontend/src/components/Navigation.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/public/assets/generated/lit-heaven-logo-new.dim_400x400.png",
-          "frontend/src/components/Navigation.tsx"
-        ]
-      },
-      {
-        "id": "REQ-24",
-        "summary": "Update the favicon reference in frontend/index.html to use the newly uploaded logo image (Brown_Retro_Book_Store_Logo_20260224_152956_0000-removebg-preview.png) stored under frontend/public/assets/generated/.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/index.html"
-        ],
-        "matchedFiles": [
-          "frontend/index.html"
-        ]
-      },
-      {
-        "id": "REQ-25",
-        "summary": "Update the BooksPage hero banner to use the newly uploaded logo image (Brown_Retro_Book_Store_Logo_20260224_152956_0000-removebg-preview.png) wherever the previous logo was referenced.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/BooksPage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/BooksPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-26",
-        "summary": "Audit all other frontend components (Footer, ProfileSetupModal, authentication pages, and any remaining components) for references to the old logo (lit-heaven-logo-visible.dim_400x400.png) and update each to use the newly uploaded logo image.",
-        "status": "missing",
-        "plannedFiles": [
+          "frontend/public/assets/generated/book-store-logo.png",
+          "frontend/src/components/Navigation.tsx",
           "frontend/src/components/Footer.tsx",
           "frontend/src/components/ProfileSetupModal.tsx",
-          "frontend/src/components/Layout.tsx"
+          "frontend/src/pages/BooksPage.tsx",
+          "frontend/index.html"
         ],
-        "matchedFiles": []
+        "matchedFiles": [
+          "frontend/src/components/Navigation.tsx",
+          "frontend/src/components/Footer.tsx",
+          "frontend/src/components/ProfileSetupModal.tsx",
+          "frontend/src/pages/BooksPage.tsx",
+          "frontend/index.html"
+        ]
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
-    "caffeine.lock.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
     "frontend/index.html",
-    "frontend/public/assets/generated/lit-heaven-logo-new.dim_400x400.png",
+    "frontend/src/components/Footer.tsx",
     "frontend/src/components/Navigation.tsx",
+    "frontend/src/components/ProfileSetupModal.tsx",
     "frontend/src/pages/BooksPage.tsx",
     "project_state.json",
     "scratch/component-selection.json",

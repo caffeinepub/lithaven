@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -7,6 +7,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { useInternetIdentity } from '../hooks/useInternetIdentity';
 import { useGetCallerUserProfile, useSaveCallerUserProfile } from '../hooks/useQueries';
 import { UserRole } from '../backend';
+
+const LOGO_PATH = '/assets/Brown_Retro_Book_Store_Logo_20260224_180351_0000-removebg-preview.png';
 
 export default function ProfileSetupModal() {
   const { identity } = useInternetIdentity();
@@ -39,8 +41,15 @@ export default function ProfileSetupModal() {
     <Dialog open={showProfileSetup} onOpenChange={() => {}}>
       <DialogContent className="sm:max-w-[500px]" onInteractOutside={(e) => e.preventDefault()}>
         <DialogHeader>
-          <DialogTitle className="font-serif text-2xl">Welcome to LitHaven</DialogTitle>
-          <DialogDescription>Please set up your profile to continue</DialogDescription>
+          <div className="flex justify-center mb-2">
+            <img
+              src={LOGO_PATH}
+              alt="Lit~Heaven open book logo"
+              className="h-16 w-auto"
+            />
+          </div>
+          <DialogTitle className="font-serif text-2xl text-center">Welcome to Lit~Heaven</DialogTitle>
+          <DialogDescription className="text-center">Please set up your profile to continue</DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4 mt-4">
           <div className="space-y-2">

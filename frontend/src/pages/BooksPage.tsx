@@ -11,6 +11,8 @@ import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useGetAllBooks, type Book } from '../hooks/useQueries';
 
+const LOGO_PATH = '/assets/Brown_Retro_Book_Store_Logo_20260224_180351_0000-removebg-preview.png';
+
 const GENRES = ['Fiction', 'Non-Fiction', 'Mystery', 'Romance', 'Science Fiction', 'Fantasy', 'Biography', 'History'];
 
 export default function BooksPage() {
@@ -52,7 +54,7 @@ export default function BooksPage() {
       } else if (sortBy === 'price') {
         return a.price - b.price;
       }
-      return 0; // popularity - would need backend support
+      return 0;
     });
 
   return (
@@ -65,8 +67,8 @@ export default function BooksPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40" />
         <div className="relative container mx-auto px-4 h-full flex flex-col justify-center items-center text-center">
           <img
-            src="/assets/generated/lit-heaven-logo-new.dim_400x400.png"
-            alt="Lit~Heaven"
+            src={LOGO_PATH}
+            alt="Lit~Heaven open book logo"
             className="h-24 w-24 md:h-32 md:w-32 mb-6 object-contain"
           />
           <h1 className="font-serif text-4xl md:text-6xl font-bold text-white mb-4">
@@ -202,47 +204,57 @@ export default function BooksPage() {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filteredBooks.map((book) => (
-                <Card key={book.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                  <CardContent className="p-0">
-                    <div className="aspect-[2/3] bg-muted relative">
-                      <img
-                        src={
-                          book.coverImage
-                            ? book.coverImage.getDirectURL()
-                            : '/assets/generated/book-placeholder.dim_400x600.png'
-                        }
-                        alt={book.title}
-                        className="w-full h-full object-cover"
-                      />
-                      {!book.approved && (
-                        <Badge className="absolute top-2 right-2" variant="secondary">
-                          Pending
-                        </Badge>
-                      )}
-                    </div>
-                    <div className="p-4 space-y-2">
-                      <h3 className="font-serif font-semibold text-lg line-clamp-2">{book.title}</h3>
-                      <p className="text-sm text-muted-foreground">by {book.authorName}</p>
-                      <div className="flex items-center justify-between pt-2">
-                        <span className="text-lg font-bold">${book.price.toFixed(2)}</span>
-                        {book.rating && (
-                          <div className="flex items-center gap-1">
-                            <span className="text-sm font-medium">{book.rating.toFixed(1)}</span>
-                            <span className="text-yellow-500">★</span>
-                          </div>
-                        )}
-                      </div>
-                      <Badge variant="outline" className="mt-2">
-                        {book.genre}
-                      </Badge>
-                    </div>
-                  </CardContent>
-                </Card>
+                <BookCard key={book.id} book={book} />
               ))}
             </div>
           )}
         </div>
       </div>
     </div>
+  );
+}
+
+function BookCard({ book }: { book: Book }) {
+  const coverUrl = book.coverImage ? book.coverImage.getDirectURL() : '/assets/generated/book-placeholder.dim_400x600.png';
+
+  return (
+    <Card className="group overflow-hidden hover:shadow-warm transition-shadow duration-300">
+      <div className="relative overflow-hidden">
+        <img
+          src={coverUrl}
+          alt={book.title}
+          className="w-full h-[280px] object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+        <div className="absolute top-2 right-2 flex flex-col gap-1">
+          {book.bookType && (
+            <Badge variant="secondary" className="text-xs capitalize">
+              {book.bookType}
+            </Badge>
+          )}
+          {!book.approved && (
+            <Badge variant="outline" className="text-xs bg-background/80">
+              Pending
+            </Badge>
+          )}
+        </div>
+      </div>
+      <CardContent className="p-4">
+        <h3 className="font-serif font-semibold text-base leading-tight mb-1 line-clamp-2">{book.title}</h3>
+        <p className="text-sm text-muted-foreground mb-2">{book.authorName}</p>
+        <div className="flex items-center justify-between">
+          <span className="font-bold text-primary">${book.price.toFixed(2)}</span>
+          {book.rating !== undefined && book.rating !== null && (
+            <span className="text-sm text-muted-foreground flex items-center gap-1">
+              ★ {book.rating.toFixed(1)}
+            </span>
+          )}
+        </div>
+        {book.genre && (
+          <Badge variant="outline" className="mt-2 text-xs">
+            {book.genre}
+          </Badge>
+        )}
+      </CardContent>
+    </Card>
   );
 }
