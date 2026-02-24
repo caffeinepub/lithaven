@@ -1,0 +1,13 @@
+{
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup, defining the root route with Layout wrapper and ProfileSetupModal, and the index route pointing to BooksPage.",
+  "frontend/src/components/Layout.tsx": "Layout wrapper component that provides consistent structure with Navigation header, main content area, and Footer across all pages.",
+  "frontend/src/components/Navigation.tsx": "Responsive navigation header with \"Lit~Heaven\" branding using the new logo (lit-heaven-logo-new.dim_400x400.png), including authentication controls, theme toggle, and mobile sheet menu.",
+  "frontend/src/components/Footer.tsx": "Footer component displaying copyright information with \"Lit~Heaven\" branding and attribution link to caffeine.ai with proper UTM tracking parameters.",
+  "frontend/src/components/ThemeToggle.tsx": "Theme toggle button component that switches between light and dark modes, persisting preference in localStorage.",
+  "frontend/src/components/ProfileSetupModal.tsx": "Modal dialog that appears on first login to collect user profile information (name, email, bio) using the authorization component's profile management.",
+  "frontend/src/pages/BooksPage.tsx": "Main books listing page with hero banner displaying the new logo (lit-heaven-logo-new.dim_400x400.png), search functionality, genre/price/sort filters, and responsive grid display of book cards.",
+  "frontend/src/hooks/useQueries.ts": "Custom React Query hooks for backend data fetching and mutations with proper TypeScript types, including Book interface definition and user profile management functions with loading states and cache invalidation.",
+  "frontend/src/index.css": "Global styles with OKLCH-based warm literary color palette (cream, brown, soft black) for both light and dark modes, custom font imports (Merriweather serif, Inter sans), and typography settings.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with literary color palette (cream, brown, soft-black), custom serif/sans font families, warm shadows, and additional spacing utilities.",
+  "frontend/index.html": "HTML entry point with \"Lit~Heaven\" title and favicon updated to reference the new logo file (lit-heaven-logo-new.dim_400x400.png)."
+}

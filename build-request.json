@@ -1,0 +1,93 @@
+{
+  "kind": "build_request",
+  "title": "Replace logo with newly uploaded image across all app locations",
+  "projectName": "Lit~Heaven",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-23",
+      "text": "Replace the current logo image (lit-heaven-logo-visible.dim_400x400.png) in the Navigation component with the newly uploaded logo file (Brown_Retro_Book_Store_Logo_20260224_152956_0000-removebg-preview.png), saved as a new asset in frontend/public/assets/generated/. Ensure proper sizing and responsive behavior across desktop and mobile viewports.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "Now do it",
+          "Replace the logo in each and every page a place of the app you placed"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The new logo image is saved as a static asset under frontend/public/assets/generated/",
+        "Navigation component references the new logo file and displays it correctly on both desktop and mobile",
+        "Logo is properly sized and does not overflow or appear distorted"
+      ]
+    },
+    {
+      "id": "REQ-24",
+      "text": "Update the favicon reference in frontend/index.html to use the newly uploaded logo image (Brown_Retro_Book_Store_Logo_20260224_152956_0000-removebg-preview.png) stored under frontend/public/assets/generated/.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "Replace the logo in each and every page a place of the app you placed"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The <link rel='icon'> in frontend/index.html points to the new logo asset path",
+        "The favicon displays the new logo in the browser tab"
+      ]
+    },
+    {
+      "id": "REQ-25",
+      "text": "Update the BooksPage hero banner to use the newly uploaded logo image (Brown_Retro_Book_Store_Logo_20260224_152956_0000-removebg-preview.png) wherever the previous logo was referenced.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "Replace the logo in each and every page a place of the app you placed"
+        ]
+      },
+      "acceptanceCriteria": [
+        "BooksPage hero banner displays the new logo image",
+        "Image renders correctly at all viewport sizes"
+      ]
+    },
+    {
+      "id": "REQ-26",
+      "text": "Audit all other frontend components (Footer, ProfileSetupModal, authentication pages, and any remaining components) for references to the old logo (lit-heaven-logo-visible.dim_400x400.png) and update each to use the newly uploaded logo image.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "Replace the logo in each and every page a place of the app you placed"
+        ]
+      },
+      "acceptanceCriteria": [
+        "No component references the old logo file lit-heaven-logo-visible.dim_400x400.png",
+        "All logo instances across the app consistently display the new uploaded logo"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify any files under frontend/src/hooks/ or frontend/src/components/ui/",
+    "Store the new logo as a static asset in frontend/public/assets/generated/ — do not route it through the backend"
+  ],
+  "nonGoals": [
+    "Changing the app name or branding text",
+    "Modifying backend logic or data models",
+    "Redesigning page layouts beyond logo placement"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": [
+      "Re-render with warm brown tones and improved contrast so the open book illustration and 'Lit-Heaven' text are clearly visible on both light and dark backgrounds (Brown_Retro_Book_Store_Logo_20260224_152956_0000-removebg-preview.png > lit-heaven-logo-new.dim_400x400.png)"
+    ]
+  }
+}

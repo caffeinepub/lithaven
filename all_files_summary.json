@@ -1,0 +1,22 @@
+{
+  "backend/main.mo": "Main Motoko actor for the Lit~Heaven backend, defining Book, Article, Review, and UserProfile types with CRUD operations, access control, and blob storage mixins for an ICP-based bookstore.",
+  "feature_evidence.json": "Feature evidence report tracking three logo-replacement features: updating the Navigation component, favicon in index.html, and BooksPage hero banner to use the new Brown Retro Book Store logo asset.",
+  "frontend-file-summaries.txt": "JSON map of frontend source file paths to short descriptions summarizing each file's role in the Lit~Heaven React application.",
+  "frontend/index.css": "Global CSS file importing Tailwind layers and defining OKLCH-based CSS custom properties for light and dark color themes used throughout the app.",
+  "frontend/index.html": "HTML entry point for the Lit~Heaven app, setting the page title, favicon to the new logo PNG, and mounting the React app via main.tsx.",
+  "frontend/src/App.tsx": "Root React component that configures TanStack Router with a root route wrapping Layout and ProfileSetupModal, and an index route rendering BooksPage.",
+  "frontend/src/components/Footer.tsx": "Footer component showing copyright for Lit~Heaven and a 'Built with caffeine.ai' attribution link with UTM tracking parameters.",
+  "frontend/src/components/Layout.tsx": "Layout wrapper that composes Navigation, a main content area, and Footer into a full-height flex column for consistent page structure.",
+  "frontend/src/components/Navigation.tsx": "Sticky responsive navigation header displaying the new Lit~Heaven logo, a Books link, theme toggle, and Internet Identity login/logout for both desktop and mobile (Sheet) viewports.",
+  "frontend/src/components/ProfileSetupModal.tsx": "Modal dialog that prompts newly authenticated users to enter their name, email, and bio, then saves the profile via the useSaveCallerUserProfile mutation.",
+  "frontend/src/components/ThemeToggle.tsx": "Button component that toggles between light and dark themes, persisting the choice in localStorage and applying the 'dark' class to the document root.",
+  "frontend/src/hooks/useActor.ts": "React hook that creates and caches an ICP backend actor using React Query, supporting both anonymous and authenticated (Internet Identity) usage, and invalidates dependent queries when the actor changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides an Internet Identity authentication context and provider component, exposing login/logout functions, identity state, and login status via a React context hook.",
+  "frontend/src/hooks/useQueries.ts": "Defines React Query hooks for fetching and mutating user profiles and books against the ICP backend actor, including useGetCallerUserProfile, useSaveCallerUserProfile, useGetAllBooks, and useAddBook.",
+  "frontend/src/index.css": "Global CSS file that imports Google Fonts, sets up Tailwind directives, and defines CSS custom properties for a warm literary color palette in both light and dark modes.",
+  "frontend/src/main.tsx": "Application entry point that renders the React app wrapped with QueryClientProvider and InternetIdentityProvider into the DOM root.",
+  "frontend/src/pages/BooksPage.tsx": "Books listing page featuring a hero banner, search input, genre/price filters, sort controls, and a client-side filtered/sorted grid of book cards with loading skeletons.",
+  "frontend/src/utils/urlParams.ts": "Utility functions for reading, persisting, and clearing URL parameters from both query strings and hash-based routes, with sessionStorage fallback for sensitive values like admin tokens.",
+  "frontend/tailwind.config.js": "Tailwind CSS configuration for the frontend, extending the default theme with custom colors (using oklch), fonts, border radii, shadows, and enabling dark mode, typography, container queries, and animation plugins.",
+  "project_state.json": "Tracks the overall state of the LitHaven project including version, architectural notes, known issues, and a list of existing implemented features with their requirement IDs and versions."
+}
